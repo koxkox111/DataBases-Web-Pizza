@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<br>
+<a href="{% url 'home' %}" class="btn btn-primary" role="button">Powrót</a>
+<br>
+<h2>Zamówienia:</h2>
+<br>
+
+{% regroup all by order as order_list %}
+
+{% for item in order_list %}
+<li>
+    {{ item.grouper.date | date:"Y.m.d H:i" }}
+    <ul>
+        {% for pizza in item.list %}
+        <li>
+            {{ pizza }}
+        </li>
+        {% endfor %}
+    </ul>
+</li>
+<br>
+{% endfor %}
+
+
+{% endblock %}

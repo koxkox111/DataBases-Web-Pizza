@@ -1,0 +1,9 @@
+Trzeba zainstalować:
+python 3, django.
+
+Aby włączyć projekt trzeba wpisać:
+cd djangodb && source virtual/bin/activate && cd PizzaBajtka && python manage.py runserver
+
+Hasło i login do superusera:
+username: admin
+password: admin

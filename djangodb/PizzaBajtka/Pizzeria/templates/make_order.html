@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<br>
+<a href="{% url 'home' %}" class="btn btn-primary" role="button">Powrót</a>
+<br>
+<h2>Złóż zamówienie</h2>
+<br>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form }}
+
+    <input type="submit" class="btn btn-primary" name="Submit" value="Dodaj Pizzę">
+</form>
+
+<br>
+Twoje zamówienie: {{ order.date|date:"Y.m.d H:i" }}
+<br>
+
+{% regroup all by order as order_list %}
+
+{% for item in order_list %}
+{% for pizza in item.list %}
+<li>
+    {{ pizza }}
+</li>
+{% endfor %}
+{% endfor %}
+
+
+
+<br><br>
+
+{% endblock %}

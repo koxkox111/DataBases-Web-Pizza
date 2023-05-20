@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<br><br>
+<h2>Strona główna</h2>
+<br>
+
+<h1>
+    <a href="{% url 'warehouse' %}" class="btn btn-primary" role="button">Zobacz magazyn</a>
+    <a href="{% url 'make_product' %}" class="btn btn-primary" role="button">Zrób nowy produkt</a>
+    <a href="{% url 'make_delivery' %}" class="btn btn-primary" role="button">Zrób dostawę</a>
+</h1>
+<br>
+<h1>
+    <a href="{% url 'menu' %}" class="btn btn-primary" role="button">Zobacz menu</a>
+    <a href="{% url 'make_pizza' %}" class="btn btn-primary" role="button">Zrób nową pizzę</a>
+</h1>
+<br>
+<h1>
+    <a href="{% url 'orders' %}" class="btn btn-primary" role="button">Zobacz zamówienia</a>
+    <a href="{% url 'make_order' %}" class="btn btn-primary" role="button">Złóż zamówienie</a>
+</h1>
+<br>
+
+
+{% endblock %}

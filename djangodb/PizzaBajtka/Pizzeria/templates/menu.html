@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    table, td {
+      border:1px solid black;
+    }
+</style>
+
+<br>
+<a href="{% url 'home' %}" class="btn btn-primary" role="button">Powrót</a>
+<br>
+<h2>Menu:</h2>
+<h3>    
+    Mnożniki w Pizzach
+</h3>
+<br>
+<table>    
+    <tr>
+        <td>
+            Rozmiar
+        </td>
+        <td>
+            Mnożnik ceny
+        </td>
+        <td>
+            Mnożnik ilości skladników
+        </td>
+    </tr>
+    {% for item in sizes %}
+    <tr>
+        <td>
+            {{ item.name }}
+        </td>
+        <td>
+            {{ item.priceMultiplier }}
+        </td>
+        <td>
+            {{ item.ingredientMultiplier }}
+    </td>
+</tr>
+{% endfor %}
+</table>
+
+
+<br>
+
+
+{% regroup all by pizza as pizza_list %}
+
+{% for item in pizza_list %}
+<li>
+    {{ item.grouper }} - {{ item.grouper.price }} zł
+    <ul>
+        {% for pizza in item.list %}
+        <li>
+            {{ pizza }}
+        </li>
+        {% endfor %}
+    </ul>
+</li>
+<br>
+{% endfor %}
+
+
+{% endblock %}

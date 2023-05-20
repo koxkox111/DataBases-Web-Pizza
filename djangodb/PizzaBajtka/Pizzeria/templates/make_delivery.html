@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<br>
+<a href="{% url 'home' %}" class="btn btn-primary" role="button">Powrót</a>
+<br>
+<h2>Zamów:</h2>
+<br>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form}}
+
+    <input type="submit" class="btn btn-primary" name="Submit" value="Zrób dostawę">
+</form>
+
+{% endblock %}

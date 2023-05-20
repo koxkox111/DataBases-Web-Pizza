@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<br>
+<a href="{% url 'home' %}" class="btn btn-primary" role="button">Powrót</a>
+<br>
+<h2>Dodaj składnik</h2>
+<br>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form }}
+
+    <input type="submit"  class="btn btn-primary"name="Submit" value="Dodaj">
+</form>
+
+<br>
+Twoja Pizza: {{ pizza }}
+<br>
+<br>
+{% for indigrient in all %}
+    <br>
+    {{ indigrient }}
+{% endfor %}
+
+
+<br><br>
+
+{% endblock %}

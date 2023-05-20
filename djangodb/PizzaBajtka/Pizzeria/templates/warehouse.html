@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+    table, td {
+      border:1px solid black;
+    }
+</style>
+
+<br>
+<a href="{% url 'home' %}" class="btn btn-primary" role="button">Powrót</a>
+<br>
+<h2>Stan magazynu:</h2>
+<br>
+
+<table>
+    <tr>
+        <td>
+            Składnik
+        </td>
+        <td>
+            Ilość
+        </td>
+    </tr>    
+    {% for item in all %}
+    <tr>
+        <td>
+            {{ item.name }}
+        </td>
+        <td>
+        {{ item.volume }} g
+        </td>
+        {% endfor %}
+    </tr>
+</table>
+
+{% endblock %}
